@@ -1,7 +1,7 @@
 :root {
   --szin-hatter: white;
   --szin-betu: rgb(42, 48, 46);
-  --szin-szurke: #6d746c;
+  --szin-szurke: #8c8f8b;
   --szin-cta: #2e393b;
   --szin-tilott: brown;
 }
@@ -81,8 +81,7 @@ button {
 
 .tilos {
   color: var(--szin-tilott);
-  border: dashed 1px var(--szin-tilott);
-  border-radius: 5px;
+  border-bottom: dotted 1px var(--szin-tilott);
 }
 
 footer {
