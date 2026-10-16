@@ -1,7 +1,5 @@
 import { useState } from "react"; 
 
-import "./App.css"; 
-
 import { TANULOSZOBAK, type szobatipusok, type TanuloSzobaTipus } from "./adatok";
 import Szobak from "./components/Kartyak";
 
@@ -13,11 +11,11 @@ function App() {
 
   
 
-  function allapotKezelo(index: number, allapot: ???) { 
+  function allapotKezelo(index: number, allapot: szobatipusok) { 
 
     const ujszobaLista: TanuloSzobaTipus[] = [...szobaLista];  
 
-    /*ujszobaLista[index].allapot = allapot; */
+    ujszobaLista[index].szobatipus = allapot; 
 
     setszobaLista(ujszobaLista); 
 
@@ -32,7 +30,7 @@ function App() {
       <header><h1>Tanulószoba foglalás</h1></header> 
 
       <section> 
-        <Szobak szobaLista={szobaLista} allapotKezelo={allapotKezelo} />
+        <Szobak szobaLista={szobaLista} />
       </section> 
 
       <footer><p>Készítette: Huszár Fruzsina Anna</p></footer> 

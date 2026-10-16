@@ -1,8 +1,6 @@
-import "./kartyaformazas.css"
 import type { TanuloSzobaTipus } from '../adatok'
 
 import { useSzobaContext } from "../contexts/szobaContext";
-
 
 interface SzobaPropsTipus {
 
@@ -24,7 +22,7 @@ function Szoba({ elem, index }: SzobaPropsTipus) {
 
             <button
                 title="foglal"
-                onClick={() => allapotKezelo(index, "???")}
+                onClick={() => allapotKezelo(index, 1)}
             >
                 Foglalás
             </button>

@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { TANULOSZOBAK, type szobatipusok, type TanuloSzobaTipus } from "../adatok";
+import { TANULOSZOBAK, type TanuloSzobaTipus } from "../adatok";
 
 interface SzobaContextValue {
-    allapotKezelo: (index: number, allapot: ???) => void,
+    allapotKezelo: (index: number, allapot: number) => void,
     SzobaLista: TanuloSzobaTipus[]
 }
 
@@ -17,10 +17,10 @@ export function SzobaProvider({ children }: SzobaProviderProps) {
 
     const [SzobaLista, setSzobaLista] = useState<TanuloSzobaTipus[]>(TANULOSZOBAK)
 
-    function allapotKezelo(index: number, allapot: ???) {
+    function allapotKezelo(index: number, allapot: number) {
         console.log(index, allapot)
         const ujSzobaLista: TanuloSzobaTipus[] = [...SzobaLista]
-        /*ujSzobaLista[index].allapot = allapot*/
+        ujSzobaLista[index].foglalt_helyek =  SzobaLista[index].foglalt_helyek + 1;
         setSzobaLista(ujSzobaLista)
     }
 

@@ -1,0 +1,92 @@
+:root {
+  --szin-hatter: white;
+  --szin-betu: rgb(42, 48, 46);
+  --szin-szurke: #6d746c;
+  --szin-cta: #2e393b;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px;
+}
+
+h2 {
+  font-size: medium;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: smaller;
+  font-weight: 400;
+}
+
+body {
+  padding: 20px;
+  background-color: var(--szin-hatter);
+  color: var(--szin-betu);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+article {
+  border: solid 1px var(--szin-szurke);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+.sor {
+  border-bottom: dotted 1px var(--szin-szurke);
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+}
+
+.jobb {
+  font-weight: bold;
+}
+
+button {
+  background-color: var(--szin-cta);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--szin-hatter);
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/*md, tablet*/
+@media (max-width: 880px) {
+  section div {
+    grid-template-columns: 3fr;
+  }
+}
+
+/*sm, phone*/
+@media (max-width: 580px) {
+  section div {
+    grid-template-columns: 1fr;
+  }
+}
