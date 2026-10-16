@@ -9,6 +9,7 @@ interface SzobaPropsTipus {
 }
 function Szoba({ elem, index }: SzobaPropsTipus) {
     const { allapotKezelo } = useSzobaContext();
+    const ellenorzes = elem.foglalt_helyek === elem.ferohely;
 
     return (
         <article>
@@ -20,11 +21,14 @@ function Szoba({ elem, index }: SzobaPropsTipus) {
             <p className="sor"><span className="bal">Férőhely</span><span className="jobb">{elem.ferohely} fő</span></p>
             <p className="sor"><span className="bal">Foglalt Helyek</span><span className="jobb">{elem.foglalt_helyek} fő</span></p>
 
+            {ellenorzes && <p className="tilos">Már nem tudsz foglalni.</p>}
+
             <button
+                className={ellenorzes ? "letiltott" : ""}
                 title="foglal"
                 onClick={() => allapotKezelo(index, 1)}
             >
-                Foglalás
+            {ellenorzes ? "Megtelt" : "Foglalás"}
             </button>
 
         </article>

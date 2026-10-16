@@ -3,6 +3,7 @@
   --szin-betu: rgb(42, 48, 46);
   --szin-szurke: #6d746c;
   --szin-cta: #2e393b;
+  --szin-tilott: brown;
 }
 
 * {
@@ -31,11 +32,13 @@ body {
   background-color: var(--szin-hatter);
   color: var(--szin-betu);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: auto;
 }
 
 section div {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding: 10px;
 }
@@ -72,15 +75,28 @@ button {
   color: var(--szin-hatter);
 }
 
+.letiltott {
+  background-color: var(--szin-szurke);
+}
+
+.tilos {
+  color: var(--szin-tilott);
+  border: dashed 1px var(--szin-tilott);
+  border-radius: 5px;
+}
+
 footer {
   margin-top: 30px;
   text-align: center;
 }
 
 /*md, tablet*/
-@media (max-width: 880px) {
+@media (max-width: 800px) {
+  body {
+    max-width: 100vw;
+  }
   section div {
-    grid-template-columns: 3fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

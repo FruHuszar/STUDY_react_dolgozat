@@ -20,7 +20,13 @@ export function SzobaProvider({ children }: SzobaProviderProps) {
     function allapotKezelo(index: number, allapot: number) {
         console.log(index, allapot)
         const ujSzobaLista: TanuloSzobaTipus[] = [...SzobaLista]
-        ujSzobaLista[index].foglalt_helyek =  SzobaLista[index].foglalt_helyek + 1;
+
+        if (SzobaLista[index].foglalt_helyek + 1 > SzobaLista[index].ferohely){
+            console.log("Betelt helyek");
+        } else {
+            ujSzobaLista[index].foglalt_helyek =  SzobaLista[index].foglalt_helyek + 1;        
+        }
+        
         setSzobaLista(ujSzobaLista)
     }
 

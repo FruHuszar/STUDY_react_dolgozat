@@ -1,75 +1,54 @@
-# React + TypeScript + Vite
+# Tanulószobák
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A következő feladatban egy tanulószobákat üzemeltető vállalkozás webalkalmazását kell elkészítened.
 
-Currently, two official plugins are available:
+Az alkalmazásban a látogatók megtekinthetik a különböző tanulószobákat, valamint helyet foglalhatnak a kiválasztott szobába.
+Az alkalmazás egyetlen oldalból áll.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A design színei és betűtípusai szabadon megválaszthatóak, de az elrendezést a minta alapján kell elkészíteni. Legalább 2 töréspont legyen.   
 
-## React Compiler
+<img src="assets/asztali.png" alt="minta">
+<img src="assets/tablet.png" alt="minta">
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Az oldal működése
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Minden tanulószobánál jelenjen meg:
+-	a szoba neve;
+-	a szoba típusa;
+-	az emelet;
+-	a férőhelyek száma;
+-	a már lefoglalt helyek száma;
+-	egy „Helyet foglalok” gomb.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Ha a felhasználó a „Helyet foglalok” gombra kattint, az objektumlistában eggyel növekedjen a tanulószobához tartozó foglalt helyek száma. A módosítás után az oldalon megjelenő adatok is frissüljenek.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Egy szobába csak akkor lehessen új helyet foglalni, ha a foglalt helyek száma kisebb a férőhelyek számánál. 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Szükséges komponensek
 
-```
+- App - itt kezeld az oldal állapotát vagy a Context-ben. 
+- Kartyak - ez tartalmazza az összes kártyát
+- Kartya - Egy darab kártya megjelenítése. Itt röténik a kattintás az esemény
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## A program állapota
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+TANULOSZOBAK lista
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 
-```
+## Extrák
+
+Ha a szoba megtelt:
+-	a gomb legyen letiltva;
+-	a gombon a „Nincs szabad hely” felirat jelenjen meg;
+-	a kártyán jól látható „Megtelt” jelzés szerepeljen.
+
+
+
+
+
+
+ 
+ 
+
+
